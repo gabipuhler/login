@@ -31,8 +31,8 @@ Pressione Enter
   - Verifique se ficou verde o Apache e o MySQL
  
 ## Testar se está funcionando
-   -Abra o navegador Firefox Azul e digite http://localhost/login
+  - Abra o navegador Firefox Azul e digite http://localhost/login
   
 ## Editar utilize o VS Code
-   -Tecla Windows - Abrir o Visual Studio Code (é o azul)
-   -*Abrir pasta* no VS Code escolha c:\xampp\htdocs\login
+  - Tecla Windows - Abrir o Visual Studio Code (é o azul)
+  - *Abrir pasta* no VS Code escolha c:\xampp\htdocs\login
