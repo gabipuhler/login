@@ -175,20 +175,24 @@ Abra a URL http://localhost/login/ -->
     <script>
         //Código jQuery para mostrar e ocultar os formulários. 
         $(function() {
-
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //ocultar
                 $("#caixaSenha").show(); //Mostrar
             });
 
-            $("#btnJaRegistrarNovo").click(function() {
+            $("#btnRegistrarNovo").click(function() {
+                $("#caixaLogin").hide(); //ocultar
+                $("#caixaRegistro").show(); //Mostrar
+            });
+
+            $("#btnJaRegistrado").click(function() {
                 $("#caixaSenha").hide(); //ocultar
                 $("#caixaLogin").show(); //Mostrar
             });
 
-            $("#btnRegistrar2").click(function() {
-                $("#caixaLogin").hide(); //ocultar
-                $("#caixaRegistro").show(); //Mostrar
+            $("#btnJaRegistrado2").click(function() {
+                $("#caixaRegistro").hide(); //ocultar
+                $("#caixaLogin").show(); //Mostrar
             });
         });
     </script>
