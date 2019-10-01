@@ -14,7 +14,9 @@ Abra a URL http://localhost/login/ -->
     <title>Sistema de Login</title>
 
     <style>
-        #alerta, #caixaSenha, #caixaRegistro{
+        #alerta,
+        #caixaSenha,
+        #caixaRegistro {
             display: none;
         }
     </style>
@@ -102,8 +104,8 @@ Abra a URL http://localhost/login/ -->
 
                     <div class="form-group">
                         <p class="text-center">
-                        Já registrado? <a href="#" id="btnJaRegistrado">
-                        Entrar por aqui.</a>
+                            Já registrado? <a href="#" id="btnJaRegistrado">
+                                Entrar por aqui.</a>
                         </p>
 
                     </div>
@@ -154,7 +156,7 @@ Abra a URL http://localhost/login/ -->
                     <div class="form-group">
                         <p class="text-center">
                             Já registrado? <a href="#" id="btnJaRegistrado2">
-                            Entrar por aqui.
+                                Entrar por aqui.
                             </a>
                         </p>
                     </div>
@@ -172,6 +174,23 @@ Abra a URL http://localhost/login/ -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         //Código jQuery para mostrar e ocultar os formulários. 
+        $(function() {
+
+            $("#btnEsqueci").click(function() {
+                $("#caixaLogin").hide(); //ocultar
+                $("#caixaSenha").show(); //Mostrar
+            });
+
+            $("#btnJaRegistrarNovo").click(function() {
+                $("#caixaSenha").hide(); //ocultar
+                $("#caixaLogin").show(); //Mostrar
+            });
+
+            $("#btnRegistrar2").click(function() {
+                $("#caixaLogin").hide(); //ocultar
+                $("#caixaRegistro").show(); //Mostrar
+            });
+        });
     </script>
 </body>
 
