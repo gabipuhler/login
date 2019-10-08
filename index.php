@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="pt-br">
+<!-- Para acessar o projeto, habilite o Apache no XAMPP
+    Abra o URL  http://localhost/login/
+-->
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -27,7 +33,7 @@
             <div class="col-lg-4 offset-lg-4" id="alerta">
                 <div class="alert alert-success text-center">
                     <strong class="resultado">
-                        Alo Ha Tchurmaaaaaaaa
+                        Olá
                     </strong>
 
                 </div>
@@ -66,7 +72,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="::Entrar::" name="btnEntrar" id="btnEntrar" class="btn btn-primary btn-block">
+                        <input type="submit" value="Entrar" name="btnEntrar" id="btnEntrar" class="btn btn-primary btn-block">
                     </div>
 
                     <div class="form-group">
@@ -75,6 +81,9 @@
                             </a>
                         </p>
                     </div>
+
+
+
                 </form>
 
             </div>
@@ -99,7 +108,7 @@
 
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="::Gerar::" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
+                    <input type="submit" value="Gerar" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
                 </div>
 
                 <div class="form-group">
@@ -136,21 +145,25 @@
                     </div>
 
                     <div class="form-group">
+
                         <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha Usuário" placeholder="Senha" required minlength="6">
                     </div>
 
                     <div class="form-group">
+
                         <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="confirmar Senha" required minlength="6">
                     </div>
 
                     <div class="form-group mt-3">
+
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="concordas" id="concordar" class="custom-control-input">
                             <label for="concordar" class="custom-control-label">
                                 Eu concordo com <a href="#"> os termos de condições </a>
                             </label>
+
                             <div class="form-group">
-                                <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
+                                <input type="submit" value="Registrar" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
                             </div>
                             <div class="form-group">
                                 <p class="text-center">
@@ -159,8 +172,22 @@
                                     </a>
                                 </p>
                             </div>
+
                         </div>
-                    </div </form> </div> </section> <!-- Final do formulário de cadastro de novos usuários -->
+
+
+                    </div>
+
+                </form>
+
+
+
+
+            </div>
+
+        </section>
+
+        <!-- Final do formulário de cadastro de novos usuários -->
 
     </main>
     <!-- Optional JavaScript -->
@@ -175,8 +202,8 @@
         $(function() {
 
             // Validação de formulários
-
             jQuery.validator.setDefaults({
+
                 success: "valid"
             });
 
@@ -188,9 +215,14 @@
                     }
                 }
             });
+
             $("#FormLogin").validate();
+
             $("#FormSenha").validate();
+
+
             // Mostrar e ocultar formulários
+
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //ocultar
                 $("#caixaSenha").show(); //Mostrar
@@ -211,34 +243,65 @@
                 $("#caixaLogin").show(); //Mostrar
             });
 
-            //Cadastro de novo usuário
+            //Cadastro de novo usuario
             $("#btnRegistrar").click(function(e) {
                 if (document
                     .querySelector("#formRegistro")
-                    .checkValidity()){
-                    e.preventDefault(); //Não abrir outra página!
-                    //Envio de dados via Ajax
+                    .checkValidity()) {
+                    e.preventDefault(); //Não abrir outra página
+                    //envio dos dados via Ajax
                     $.ajax({
                         url: 'recebe_dados.php',
                         method: 'post',
                         data: $("#formRegistro").serialize() + '&action=cadastro',
-                        success: function(resposta){
+                        success: function(resposta) {
                             $("#alerta").show();
                             $(".resultado").html(resposta);
                         }
-                    });
+                    })
                 }
                 return true;
             });
-            //Login
+            //login
             $("#btnEntrar").click(function(e) {
-
+                if (document
+                    .querySelector("#formLogin")
+                    .checkValidity()) {
+                    e.preventDefault(); //Não abrir outra página
+                    //envio dos dados via Ajax
+                    $.ajax({
+                        url: 'recebe_dados.php',
+                        method: 'post',
+                        data: $("#formLogin").serialize() + '&action=login',
+                        success: function(resposta) {
+                            $("#alerta").show();
+                            $(".resultado").html(resposta);
+                        }
+                    })
+                }
+                return true;
             });
-            //Recuperação de senha
-            $("#btnGerar").click(function(e) {});
-
+            //recuperação de senha
+            $("#btnGerar").click(function(e) {
+                if (document
+                    .querySelector("#formSenha")
+                    .checkValidity()) {
+                    e.preventDefault(); //Não abrir outra página
+                    //envio dos dados via Ajax
+                    $.ajax({
+                        url: 'recebe_dados.php',
+                        method: 'post',
+                        data: $("#formSenha").serialize() + '&action=senha',
+                        success: function(resposta) {
+                            $("#alerta").show();
+                            $(".resultado").html(resposta);
+                        }
+                    })
+                }
+                return true;
+            });
         });
-
+        
         /*
          * Translated default messages for the jQuery validation plugin.
          * Locale: PT_BR
@@ -263,6 +326,7 @@
             min: jQuery.validator.format("Por favor, forne&ccedil;a um valor maior ou igual a {0}.")
         });
     </script>
+
 </body>
 
 </html>
