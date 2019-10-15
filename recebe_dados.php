@@ -1,29 +1,39 @@
 <?php
-//teste se existe a ação
-if (isset($_POST['action'])) {
-    if ($_POST['action'] == 'cadastro') {
-        //teste se ação é igual a cadastro
-        echo "<\np>cadastro</p>";
-        echo "\n<pre>";
+// Conexão com o Banco de dados
+require_once 'configBD.php';
+
+function verificar_entrada($entrada){
+    //filtrando a entrada
+    $saida = htmlspecialchars($entrada);
+    $saida = stripcslashes($saida);
+    $saida = trim($saida);
+    return $saida; // retorna a saida limpa
+}
+//Teste se existe a ação
+if(isset($_POST['action'])){
+    if($_POST['action'] == 'cadastro'){
+        //Teste se ação é igual a cadastro
+        echo "\n<p>cadastro</p>";
+        echo "\n<pre>";//Pre-formatar
         print_r($_POST);
-        echo "\n</pre>";
-    } else if ($_POST['action'] == 'login') {
-        //senão, teste se ação é login
-        echo "<\np>login</p>";
-        echo "\n<pre>";
+        echo "\n<\pre>";
+    }else if($_POST['action'] == 'login'){
+        //Senão, teste se ação é login
+        echo "\n<p>login</p>";
+        echo "\n<pre>"; //Pre-formatar
         print_r($_POST);
-        echo "\n</pre>";
-    } else if ($_POST['action'] == 'senha') {
-        //senão, teste se ação é senha
-        echo "<\np>senha</p>";
-        echo "\n<pre>";
+        echo "\n<\pre>";
+    }else if($_POST['action'] == 'senha'){
+        //Senão, teste se ação é recuperar senha
+        echo "\n<p>senha</p>";
+        echo "\n<pre>"; //Pre-formatar
         print_r($_POST);
-        echo "\n</pre>";
-    } else {
+        echo "\n<\pre>";
+    }else{
         header("location:index.php");
     }
-} else {
-    //redirecionando para index.php, negando o acesso
+}else{
+    //Redirecionando para index.php, negando o acesso
     //a esse arquivo diretamente.
     header("location:index.php");
 }
