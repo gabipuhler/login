@@ -154,7 +154,7 @@
                         <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="confirmar Senha" required minlength="6">
                     </div>
 
-                    <div class="form-group mt-3">
+                    <div class="form-group mt-4">
 
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="concordas" id="concordar" class="custom-control-input">
