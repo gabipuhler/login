@@ -58,7 +58,7 @@
                 </a>
             </h2>
             <h2 class="text-center">
-                Registrado em: <?=$dataCriado?>
+                Registrado em: <?=$dataCriado?> 
             </h2>
         </div>
     </div>
