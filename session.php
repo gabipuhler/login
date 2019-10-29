@@ -15,8 +15,8 @@ if(isset( $_SESSION['nomeDoUsuario'])){
     $nomeCompleto = $linha ['nomeCompleto'];
     $emailUsuario = $linha ['emailUsuario'];
     $dataCriado = $linha ['dataCriado'];
-
     $dataCriado = date('d/m/Y', strtotime($dataCriado));
+    $foto = $linha['foto'];
 
 
 
