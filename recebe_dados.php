@@ -24,9 +24,9 @@ if(isset($_POST['action'])){
         $nomeCompleto = verificar_entrada ($_POST['nomeCompleto']);
         $nomeDoUsuario = verificar_entrada($_POST['nomeDoUsuario']);
         $emailUsuario = verificar_entrada($_POST['emailUsuario']);
+        $foto = verificar_entrada($_POST['foto']);
         $senhaDoUsuario = verificar_entrada($_POST['senhaDoUsuario']);
         $senhaUsuarioConfirmar = verificar_entrada($_POST['senhaUsuarioConfirmar']);
-        $foto = verificar_entrada($_POST['foto']);
         $dataCriado = date ("Y-m-d"); //Data atual no formato Banco de dados.
 
         //Codificando as senhas
@@ -42,7 +42,7 @@ if(isset($_POST['action'])){
             echo "<p class='text-danger'>Senhas não conferem.</p>";
             exit();
         }else{//As senhas conferem, veridicar se o usuario ja existe no banco de dados
-            $sql = $connect->prepare("SELECT nomeDoUsuario, EmailUsuario FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
+            $sql = $connect->prepare("SELECT nomeDoUsuario, emailUsuario FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
             $sql ->bind_param("ss", $nomeDoUsuario, $emailUsuario);
             $sql ->execute();
             $resultado = $sql->get_result();
@@ -56,8 +56,8 @@ if(isset($_POST['action'])){
                 echo "<p class='text-danger'>E-mail indisponível, tente outro!</p>";
             }else{
                 //Usuario pode ser cadastrado no banco de dados.
-                $sql = $connect->prepare("INSERT into usuario (nomeDoUsuario, nomeCompleto, emailUsuario, senhaDoUsuario, dataCriado) values(?, ?, ?, ?, ?)");
-                $sql->bind_param("sssss", $nomeDoUsuario, $nomeCompleto, $emailUsuario, $senhaCodificada, $dataCriado );
+                $sql = $connect->prepare("INSERT into usuario (nomeDoUsuario, nomeCompleto, foto, emailUsuario, senhaDoUsuario, dataCriado) values(?, ?, ?, ?, ?, ?)");
+                $sql->bind_param("ssssss", $nomeDoUsuario, $nomeCompleto, $foto, $emailUsuario, $senhaCodificada, $dataCriado );
                 if($sql->execute()){
                     echo "<p class='text-success'>Usuário cadastrado com sucesso!</p>";
                 }else{

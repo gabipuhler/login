@@ -11,14 +11,14 @@ if(isset( $_SESSION['nomeDoUsuario'])){
     $resultado = $sql->get_result();
     $linha = $resultado->fetch_array(MYSQLI_ASSOC);
 
+
     $nomeDoUsuario = $linha ['nomeDoUsuario'];
     $nomeCompleto = $linha ['nomeCompleto'];
     $emailUsuario = $linha ['emailUsuario'];
+    $foto = $linha['foto'];
     $dataCriado = $linha ['dataCriado'];
     $dataCriado = date('d/m/Y', strtotime($dataCriado));
-    $foto = $linha['foto'];
-
-
+    
 
 
 } else{

@@ -1,5 +1,5 @@
 <?php
-    require_once "session.php";
+require_once "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,20 +16,21 @@
 </head>
 
 <body>
-    <!-- inicio navBar -->
+    <!-- Barra de navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Gabi Pühler</a>
+        <a class="navbar-brand" href="#">Gabi Puhler</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
+                    <a class="nav-link" href="#">Home<span class="sr-only">(Página atual)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Destaques</a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $nomeDoUsuario ?>
@@ -43,26 +44,24 @@
             </ul>
         </div>
     </nav>
-    <!-- Fim navBar -->
-    <!-- inicio jumbotron -->
+    <!-- Fim da barra de navegação -->
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Boas vindas</h1>
-            <h2 class="display-2 text-center bg-info roundend p-1 text-light">
-                <?= $nomeCompleto ?>
-            </h2>
-            <h2 class="text-center">
-                E-mail do Usuário:
-                <a href="mailto:<?=$emailUsuario?>">
-                <?=$emailUsuario?>
-                </a>
-            </h2>
-            <h2 class="text-center">
-                Registrado em: <?=$dataCriado?> 
-            </h2>
+            <h1 class="display-4">Bem vindo(a)!</h1>
+            <h2 class="display-2 text-center bg-info text-light rounded p-2"><?= $nomeCompleto ?></h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="<?= $foto ?>" width="300px" alt="foto de perfil">
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center">E-mail do Usuário: <a href="mailto:<?= $emailUsuario ?>"><?= $emailUsuario ?></a></h2>
+                    <h2 class="text-center">Registrado em: <?= $dataCriado ?></h2>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Fim jumbotron -->
+
 
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
