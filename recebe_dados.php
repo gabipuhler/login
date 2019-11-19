@@ -56,8 +56,11 @@ if(isset($_POST['action'])){
                 echo "<p class='text-danger'>E-mail indisponível, tente outro!</p>";
             }else{
                 //Usuario pode ser cadastrado no banco de dados.
-                $sql = $connect->prepare("INSERT into usuario (nomeDoUsuario, nomeCompleto, foto, emailUsuario, senhaDoUsuario, dataCriado) values(?, ?, ?, ?, ?, ?)");
-                $sql->bind_param("ssssss", $nomeDoUsuario, $nomeCompleto, $foto, $emailUsuario, $senhaCodificada, $dataCriado );
+                $sql = $connect->prepare("INSERT into usuario 
+                (nomeDoUsuario, nomeCompleto, foto, emailUsuario, 
+                senhaDoUsuario, dataCriado) values(?, ?, ?, ?, ?, ?)");
+                $sql->bind_param("ssssss", $nomeDoUsuario, $nomeCompleto, 
+                $foto, $emailUsuario, $senhaCodificada, $dataCriado );
                 if($sql->execute()){
                     echo "<p class='text-success'>Usuário cadastrado com sucesso!</p>";
                 }else{

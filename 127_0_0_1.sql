@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Out-2019 às 21:27
+-- Tempo de geração: 19-Nov-2019 às 01:14
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -38,8 +38,21 @@ CREATE TABLE `usuario` (
   `nomeDoUsuario` varchar(45) NOT NULL,
   `emailUsuario` varchar(45) NOT NULL,
   `senhaDoUsuario` char(40) NOT NULL,
-  `dataCriado` date NOT NULL
+  `dataCriado` date NOT NULL,
+  `foto` varchar(200) NOT NULL,
+  `token` char(10) NOT NULL,
+  `tempoDeVida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeDoUsuario`, `emailUsuario`, `senhaDoUsuario`, `dataCriado`, `foto`, `token`, `tempoDeVida`) VALUES
+(1, 'gabriele puhler', 'gabipuhler', 'gabipuhler@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', 'https://imagens.canaltech.com.br/236607.471195-Lua.jpg', '', '2019-11-19 03:07:56'),
+(2, 'isa colorida', 'isabele', 'isabele@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTByZwodZF9MGD-ReoJVGAVOhk_8Bi6aZlHL8lWKoV8Y2YgCbbf&amp;s', '', '2019-11-19 03:07:56'),
+(3, 'Gabriele Puhler', 'gabiip', 'gabiipuhler@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', 'https://i.pinimg.com/originals/5c/43/ef/5c43efca5236b15654e24f0666330d96.jpg', '', '2019-11-19 03:07:56'),
+(4, 'alanaa', 'alana08', 'alana08@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', 'https://gartic.com.br/imgs/mural/if/ifinni_/lindinha-p-minha-lindinha.png', '', '2019-11-19 03:09:22');
 
 --
 -- Índices para tabelas despejadas
@@ -61,7 +74,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
