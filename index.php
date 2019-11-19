@@ -109,7 +109,7 @@
                 <h2 class="text-center mt-2">
                     Gerar nova Senha
                 </h2>
-                <form action="#" method="post" id="formSenha" class="p-2"></form>
+                <form action="#" method="post" id="formSenha" class="p-2">
                 <div class="form-group">
                     <small class="text-muted">
                         Para gerar uma nova senha digite o seu E-mail. Clique no link gerado.
@@ -130,7 +130,7 @@
                             Entrar por aqui.
                         </a>
                     </p>
-
+                </form>
 
                 </div>
 
